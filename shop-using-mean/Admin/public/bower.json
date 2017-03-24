@@ -1,0 +1,9 @@
+{
+  "name": "contactapp",
+  "version": "0.0.0",
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "metisMenu": "^2.7.0",
+    "font-awesome": "fontawesome#^4.7.0"
+  }
+}
