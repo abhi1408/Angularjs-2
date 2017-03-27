@@ -3,14 +3,14 @@ import { Routes, RouterModule } from '@angular/router';
 
 
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { LoginComponent } from './components/login/login.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
-import { CategoriesListComponent } from './categories/categories-list.component';
-import { CategoryAddComponent } from './categories/category-add.component';
+import { CategoriesListComponent } from './components/categories/categories-list.component';
+import { CategoryAddComponent } from './components/categories/category-add.component';
 
-import { ProductsListComponent } from './products/products-list.component';
-import { ProductsAddComponent } from './products/products-add.component';
+import { ProductsListComponent } from './components/products/products-list.component';
+import { ProductsAddComponent } from './components/products/products-add.component';
 
 const routes: Routes = [
   {
