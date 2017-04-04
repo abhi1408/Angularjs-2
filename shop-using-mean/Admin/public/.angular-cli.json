@@ -22,12 +22,14 @@
         "../bower_components/font-awesome/css/font-awesome.min.css",
         "../bower_components/bootstrap/dist/css/bootstrap.min.css",
         "../bower_components/metisMenu/metisMenu.min.css",
+        "../bower_components/alertifyjs/dist/css/alertify.css",
         "styles.css"
       ],
       "scripts": [
         "../bower_components/jquery/dist/jquery.js",
         "../bower_components/bootstrap/dist/js/bootstrap.min.js",
         "../bower_components/metisMenu/metisMenu.min.js",
+        "../bower_components/alertifyjs/dist/js/alertify.js",
         "assets/js/custom.js"
       ],
       "environmentSource": "environments/environment.ts",

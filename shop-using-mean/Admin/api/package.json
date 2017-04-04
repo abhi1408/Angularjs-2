@@ -1,5 +1,7 @@
 {
-  "name": "shopAdminApi",
+  "name": "AdminApi",
+  "version": "0.0.0",
+  "license": "MIT",
   "dependencies": {
     "body-parser": "^1.17.1",
     "ejs": "^2.5.6",

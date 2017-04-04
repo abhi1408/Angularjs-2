@@ -6,6 +6,9 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { AppRoutingModle, RoutingComponents } from './app.routing';
 
+import { ConfigUtils } from './utils/config.utils';
+import { NotificationUtils } from './utils/notification.utils';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,7 +20,10 @@ import { AppRoutingModle, RoutingComponents } from './app.routing';
     HttpModule,
     AppRoutingModle
   ],
-  providers: [],
+  providers: [
+    ConfigUtils,
+    NotificationUtils
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

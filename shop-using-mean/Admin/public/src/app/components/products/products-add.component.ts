@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+
 import { ProductService } from '../../services/product.service';
+import { NotificationUtils } from '../../utils/notification.utils';
 
 @Component({
   moduleId: module.id,
@@ -9,19 +12,15 @@ import { ProductService } from '../../services/product.service';
 })
 
 export class ProductsAddComponent {
-  pageTitle = 'Products Add';
+  pageTitle = 'Product';
   	 
-  products: Array<any>;
 	name: string;
 	price: number;
 	status: boolean;
 
-  	constructor(private productService: ProductService) {
-  		/*productService.getProducts()
-  			.subscribe(response => {
-  				this.products = response;
-  			});*/
-  	};
+  	constructor(private productService: ProductService, 
+      private router: Router,
+      private notificationUtils: NotificationUtils) {};
 
   	addProduct() {
   		var product = {
@@ -31,8 +30,12 @@ export class ProductsAddComponent {
   		}
   		this.productService.addProduct(product)
           .subscribe(data => {
-              console.log('Success', data);
+            this.notificationUtils.printSuccessMessage('Product added successfully.');
+            this.goBack();
           });
-
   	}
+
+    goBack(){
+      this.router.navigateByUrl('/products');
+    }
 }

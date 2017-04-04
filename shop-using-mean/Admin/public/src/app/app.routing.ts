@@ -11,6 +11,7 @@ import { CategoryAddComponent } from './components/categories/category-add.compo
 
 import { ProductsListComponent } from './components/products/products-list.component';
 import { ProductsAddComponent } from './components/products/products-add.component';
+import { ProductEditComponent } from './components/products/products-edit.component';
 
 const routes: Routes = [
   {
@@ -29,6 +30,9 @@ const routes: Routes = [
   },{
     path: 'product/add',
     component: ProductsAddComponent
+  },{
+    path: 'product/edit/:id',
+    component: ProductEditComponent
   },{
     path: 'categories',
     component: CategoriesListComponent
@@ -57,6 +61,7 @@ export const RoutingComponents = [
   DashboardComponent,
   CategoriesListComponent,
   CategoryAddComponent,
+  ProductEditComponent,
   ProductsListComponent,
   ProductsAddComponent
 ]
