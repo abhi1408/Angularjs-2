@@ -43,14 +43,33 @@
                         </div>
                         <div class="col-lg-12">
                             <div class="form-group">
-                                <label>Image</label>
-                                <input type="file" [(ngModel)]="image" class="form-control">
+                                <label>Current Image</label>
+                                <img src="{{product.image}}" height="100">
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label>Image</label>
+                                        <img-cropper [image]="image1Data" [settings]="cropperSettings1" (onCrop)="cropped($event)"></img-cropper>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <span class="result" *ngIf="image1Data.image" >
+                                            <img [src]="image1Data.image" [width]="cropperSettings1.width" [height]="cropperSettings1.height">
+                                        </span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="col-lg-12">
                             <div class="form-group">
                                 <label>Description</label>
-                                <textarea rows="10" [(ngModel)]="description" class="form-control"></textarea>
+                                                                
+                                <div [froalaEditor]="froalaEditorOptions" [(froalaModel)]="description"></div>
+
                             </div>
                         </div>
                         <div class="col-lg-12">

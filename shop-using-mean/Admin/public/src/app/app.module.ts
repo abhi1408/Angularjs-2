@@ -6,6 +6,8 @@ import { HttpModule } from '@angular/http';
 import { Ng2PaginationModule } from 'ng2-pagination';
 import { ImageCropperComponent } from 'ng2-img-cropper';
 import { ImageUploadModule } from 'angular2-image-upload';
+import { FroalaEditorModule, FroalaViewModule } from 'angular2-froala-wysiwyg';
+
 
 import { AppComponent } from './app.component';
 import { AppRoutingModle, RoutingComponents } from './app.routing';
@@ -25,6 +27,7 @@ import { NotificationUtils } from './utils/notification.utils';
     HttpModule,
     Ng2PaginationModule,
     ImageUploadModule.forRoot(),
+    FroalaEditorModule.forRoot(), FroalaViewModule.forRoot(),
     AppRoutingModle
   ],
   providers: [

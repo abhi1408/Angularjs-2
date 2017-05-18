@@ -19,7 +19,6 @@ export class ProductsAddComponent {
   pageTitle = 'Product';
 
   apiPath: string = '';
-  imageUploadPath: string = '';
 
 	name: string;
 	price: number;
@@ -41,7 +40,6 @@ export class ProductsAddComponent {
     private notificationUtils: NotificationUtils,
     private configUtils: ConfigUtils) {
     this.apiPath = configUtils.getApiURI();
-    this.imageUploadPath = this.apiPath + 'product/upload';
 
     /*image crop settings*/
     this.cropperSettings1 = new CropperSettings();
@@ -78,16 +76,12 @@ export class ProductsAddComponent {
     //console.log(this.image1Data.image);
 		this.productService.addProduct(product)
         .subscribe(data => {
-          console.log(product);
           this.notificationUtils.printSuccessMessage('Product added successfully.');
           this.goBack();
         });
 	}
 
-  imageUploaded($event){
-    console.log($event.serverResponse);
-  }
-
+  
   goBack(){
     this.router.navigateByUrl('/products');
   }
