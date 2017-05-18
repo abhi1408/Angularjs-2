@@ -18,7 +18,8 @@ export class ProductEditComponent  {
 
 	name: string;
 	price: number;
-	status: boolean;
+  status: boolean;
+	description: string;
 
   	constructor(private productService: ProductService, 
       private router: Router, 
@@ -42,7 +43,8 @@ export class ProductEditComponent  {
   		var product = {
   			name: this.name,
   			price: this.price,
-  			status: this.status,
+        status: this.status,
+  			description: this.description,
   		}
   		this.productService.updateProduct(this.id, product)
           .subscribe(data => {

@@ -3,6 +3,10 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
+import { Ng2PaginationModule } from 'ng2-pagination';
+import { ImageCropperComponent } from 'ng2-img-cropper';
+import { ImageUploadModule } from 'angular2-image-upload';
+
 import { AppComponent } from './app.component';
 import { AppRoutingModle, RoutingComponents } from './app.routing';
 
@@ -12,12 +16,15 @@ import { NotificationUtils } from './utils/notification.utils';
 @NgModule({
   declarations: [
     AppComponent,
-    RoutingComponents
+    RoutingComponents,
+    ImageCropperComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
+    Ng2PaginationModule,
+    ImageUploadModule.forRoot(),
     AppRoutingModle
   ],
   providers: [

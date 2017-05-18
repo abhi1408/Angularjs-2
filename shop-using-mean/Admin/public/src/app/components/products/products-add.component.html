@@ -6,60 +6,87 @@
     </div>
     <div class="row">
         <div class="col-lg-12">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <!--<a [routerLink]="['/dashboard']">Dashboard</a> / <a [routerLink]="['/products']">Prodct</a> / Add-->
-                    <strong>Add</strong>
-                    <a [routerLink]="['/products']" routerLinkActive="active" class="btn btn-primary btn-xs pull-right">Back</a>
-                </div>
-                <div class="panel-body">
-                    <div class="row">
-                        <!--<div class="col-lg-6">
-                            <div class="form-group">
-                                <label>Category</label>
-                                <select class="form-control">
-                                    <option>-Select-</option>
-                                    <option>Select</option>
-                                </select>
+            <form method="post" enctype="multipart/form-data">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <!--<a [routerLink]="['/dashboard']">Dashboard</a> / <a [routerLink]="['/products']">Prodct</a> / Add-->
+                        <strong>Add</strong>
+                        <a [routerLink]="['/products']" routerLinkActive="active" class="btn btn-primary btn-xs pull-right">Back</a>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <!--<div class="col-lg-6">
+                                <div class="form-group">
+                                    <label>Category</label>
+                                    <select class="form-control">
+                                        <option>-Select-</option>
+                                        <option>Select</option>
+                                    </select>
+                                </div>
+                            </div>-->
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label>Name</label>
+                                    <input name="name" [(ngModel)]="name" class="form-control">
+                                </div>
                             </div>
-                        </div>-->
-                        <div class="col-lg-6">
-                            <div class="form-group">
-                                <label>Name</label>
-                                <input name="name" [(ngModel)]="name" class="form-control">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label>Price</label>
+                                    <input name="price" [(ngModel)]="price" class="form-control">
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="form-group">
-                                <label>Price</label>
-                                <input name="price" [(ngModel)]="price" class="form-control">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label>Status</label>
+                                    <input name="status" [(ngModel)]="status" class="form-control">
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="form-group">
-                                <label>Status</label>
-                                <input name="status" [(ngModel)]="status" class="form-control">
+                            <div class="col-lg-12">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label>Image</label>
+                                            <!--<input type="file" name="image" [(ngModel)]="image" class="form-control">-->
+
+                                            <img-cropper [image]="image1Data" [settings]="cropperSettings1" (onCrop)="cropped($event)"></img-cropper>
+
+                                            <!--<input id="custom-input" type="file" (change)="fileChangeListener($event)">
+                                            <img-cropper #cropper [image]="image1Data" [settings]="cropperSettings1"></img-cropper>-->
+
+                                            <!--<image-upload
+                                              [max]="100"
+                                              [url]="imageUploadPath"
+                                              [buttonCaption]="'Select Image'"
+                                              [dropBoxMessage]="'Drop your images here...'"
+                                              (onFileUploadFinish)="imageUploaded($event)"
+                                            ></image-upload>-->
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <span class="result" *ngIf="image1Data.image" >
+                                                <img [src]="image1Data.image" [width]="cropperSettings1.width" [height]="cropperSettings1.height">
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <!--<div class="col-lg-12">
-                            <div class="form-group">
-                                <label>Image</label>
-                                <input type="file" class="form-control">
+                            
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <label>Description</label>
+                                    <textarea rows="10" name="description" [(ngModel)]="description" class="form-control"></textarea>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-lg-12">
-                            <div class="form-group">
-                                <label>Description</label>
-                                <textarea rows="10" class="form-control"></textarea>
+                            <div class="col-lg-12">
+                                <button type="button" (click)="addProduct();" class="btn btn-default">Submit</button>
+                                <button type="reset" class="btn btn-default">Reset</button>
                             </div>
-                        </div>-->
-                        <div class="col-lg-12">
-                            <button type="button" (click)="addProduct();" class="btn btn-default">Submit</button>
-                            <button type="reset" class="btn btn-default">Reset</button>
                         </div>
                     </div>
                 </div>
-            </div>
+            </form>
         </div>
     </div>
 </div>

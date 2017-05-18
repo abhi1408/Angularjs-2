@@ -6,6 +6,9 @@ var bodyParser = require('body-parser');
 var path = require('path');
 var morgan = require('morgan');
 var mongoose = require('mongoose');
+var busboy = require('connect-busboy');
+//var session = require('express-session');
+
 var mainRouter = require('./routes/index');
 var apiRouter = require('./routes/api');
 
@@ -35,10 +38,12 @@ app.use(express.static(path.join(__dirname, 'api')));
 //body parser middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(busboy()); 
 
 //create routes
 app.use('/', mainRouter);
 app.use('/api', apiRouter);
+
 
 
 mongoose.connect(DB, function(err){
