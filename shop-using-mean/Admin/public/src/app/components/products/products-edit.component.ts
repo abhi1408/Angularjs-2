@@ -34,6 +34,7 @@ export class ProductEditComponent  {
 
   public froalaEditorOptions: Object = { 
     placeholderText: 'Edit Your Content Here!',
+    height: 200,
   }
 
 	constructor(private productService: ProductService, 
@@ -50,12 +51,11 @@ export class ProductEditComponent  {
 
     this.cropperSettings1.croppedWidth = 500;
     this.cropperSettings1.croppedHeight = 500;
+    this.cropperSettings1.minWidth = 200;
+    this.cropperSettings1.minHeight = 200;
 
     this.cropperSettings1.canvasWidth = 465;
     this.cropperSettings1.canvasHeight = 300;
-
-    this.cropperSettings1.minWidth = 200;
-    this.cropperSettings1.minHeight = 200;
     
     this.cropperSettings1.cropperClass = 'cropper-canvas';
 
@@ -68,6 +68,7 @@ export class ProductEditComponent  {
   };
 
   cropped(bounds:Bounds) {
+    jQuery('.cropper-canvas').show();
     this.croppedHeight = bounds.bottom-bounds.top;
     this.croppedWidth = bounds.right-bounds.left;
   }
@@ -77,7 +78,7 @@ export class ProductEditComponent  {
         .subscribe(response => {
             //console.log(response);
             this.product = response;
-            this.description = this.product.description;
+            this.description = response.description;
         });
   }
 

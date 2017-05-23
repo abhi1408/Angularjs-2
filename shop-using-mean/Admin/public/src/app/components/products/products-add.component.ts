@@ -32,8 +32,10 @@ export class ProductsAddComponent {
   croppedWidth:number;
   croppedHeight:number;
   
-
-  @ViewChild('cropper', undefined) cropper:ImageCropperComponent;
+  public froalaEditorOptions: Object = { 
+    placeholderText: 'Edit Your Content Here!',
+    height: 200,
+  }  
 
 	constructor(private productService: ProductService, 
     private router: Router,
@@ -61,6 +63,7 @@ export class ProductsAddComponent {
   };
 
   cropped(bounds:Bounds) {
+    jQuery('.cropper-canvas').show();
     this.croppedHeight = bounds.bottom-bounds.top;
     this.croppedWidth = bounds.right-bounds.left;
   }

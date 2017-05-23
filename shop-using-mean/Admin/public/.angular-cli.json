@@ -30,8 +30,7 @@
         "../bower_components/jquery/dist/jquery.js",
         "../bower_components/bootstrap/dist/js/bootstrap.min.js",
         "../bower_components/metisMenu/metisMenu.min.js",
-        "../bower_components/alertifyjs/dist/js/alertify.js",
-        "../node_modules/jquery/dist/jquery.min.js",
+        "../bower_components/alertifyjs/dist/js/alertify.js"
         "../node_modules/froala-editor/js/froala_editor.pkgd.min.js",
         "assets/js/custom.js"
       ],

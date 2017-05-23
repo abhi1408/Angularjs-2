@@ -15,6 +15,8 @@ import { AppRoutingModle, RoutingComponents } from './app.routing';
 import { ConfigUtils } from './utils/config.utils';
 import { NotificationUtils } from './utils/notification.utils';
 
+import 'jquery';
+
 @NgModule({
   declarations: [
     AppComponent,
