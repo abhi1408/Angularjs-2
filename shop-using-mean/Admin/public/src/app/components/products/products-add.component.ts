@@ -32,33 +32,16 @@ export class ProductsAddComponent {
   croppedWidth:number;
   croppedHeight:number;
   
-  public froalaEditorOptions: Object = { 
-    placeholderText: 'Edit Your Content Here!',
-    height: 200,
-  }  
+  froalaEditorOptions: any; 
 
 	constructor(private productService: ProductService, 
     private router: Router,
     private notificationUtils: NotificationUtils,
     private configUtils: ConfigUtils) {
     this.apiPath = configUtils.getApiURI();
-
-    /*image crop settings*/
-    this.cropperSettings1 = new CropperSettings();
-    this.cropperSettings1.width = 100;
-    this.cropperSettings1.height = 100;
-
-    this.cropperSettings1.croppedWidth = 500;
-    this.cropperSettings1.croppedHeight = 500;
-
-    this.cropperSettings1.canvasWidth = 465;
-    this.cropperSettings1.canvasHeight = 300;
-
-    this.cropperSettings1.minWidth = 200;
-    this.cropperSettings1.minHeight = 200;
+    this.froalaEditorOptions = configUtils.editorGlobalSettings();
+    this.cropperSettings1 = configUtils.imageCropperGlobalSettings();
     
-    this.cropperSettings1.cropperClass = 'cropper-canvas';
-
     this.image1Data = {};
   };
 
