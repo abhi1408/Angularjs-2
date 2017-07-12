@@ -45,7 +45,7 @@ export class ProductsAddComponent {
     this.froalaEditorOptions = configUtils.editorGlobalSettings();
     this.cropperSettings1 = configUtils.imageCropperGlobalSettings();
     
-    this.status = 1;
+    this.status = true;
     this.image1Data = {};
   };
 
