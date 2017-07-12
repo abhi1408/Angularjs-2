@@ -27,6 +27,8 @@ export class ProductEditComponent  {
   image: string;
   description: string;
 
+  statusList =[{"name":"Active", "value":1}, {"name":"Inactive", "value":0}];
+
   image1Data:any;
   cropperSettings1:CropperSettings;
   croppedWidth:number;
@@ -62,6 +64,7 @@ export class ProductEditComponent  {
         .subscribe(response => {
             //console.log(response);
             this.product = response;
+            this.status = response.status;
             this.description = response.description;
         });
   }

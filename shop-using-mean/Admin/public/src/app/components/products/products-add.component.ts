@@ -26,6 +26,9 @@ export class ProductsAddComponent {
   image: string;
   description: string;
 
+  //statusList = [{name: 'Active', value: 1}, {name: 'Inactive', value: 0}];
+
+  statusList =[{"name":"Active", "value":true}, {"name":"Inactive", "value":false}];
   
   image1Data:any;
   cropperSettings1:CropperSettings;
@@ -42,6 +45,7 @@ export class ProductsAddComponent {
     this.froalaEditorOptions = configUtils.editorGlobalSettings();
     this.cropperSettings1 = configUtils.imageCropperGlobalSettings();
     
+    this.status = 1;
     this.image1Data = {};
   };
 
