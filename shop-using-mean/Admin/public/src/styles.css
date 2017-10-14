@@ -439,3 +439,22 @@ img-cropper canvas{
 .cropper-canvas{
   display: none;
 }
+
+/*Error message*/
+.ng-valid[required], .ng-valid.required  {
+  border-left: 5px solid #42A948; /* green */
+}
+.ng-invalid:not(form)  {
+  border-left: 5px solid #a94442; /* red */
+}
+
+.form-group .alert{
+  padding: 0px;
+  margin: 0px;
+  color: #a94442;
+  font-size: 14px;
+}
+.form-group .alert-danger {
+  background-color: none !important;
+  border-color: none !important;
+}

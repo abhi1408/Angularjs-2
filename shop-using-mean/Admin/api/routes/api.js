@@ -1,7 +1,7 @@
-var express = require('express');
-var router = express.Router();
-var fs = require('fs');
-var productModel = require('../models/product.js');
+const express = require('express');
+const router = express.Router();
+const fs = require('fs');
+const productModel = require('../models/product.js');
 
 //var csrf = require('csurf');
 //csrfProtection = csrf();
@@ -33,9 +33,16 @@ router.get('/product/:id', function(request, response, next){
 
 //add product
 router.post('/product', function(request, response, next){
-	var product = new productModel(request.body);
-	
-	product.save(function(err, docs){
+	let newProduct = new productModel({
+		//category: request.body.category,
+		name: request.body.name,
+		price: request.body.price,
+		image: request.body.image,
+		description: request.body.description,
+		status: request.body.status
+	});
+
+	newProduct.save(function(err, docs){
 		if(err){
 			response.send(err).status(500);
 		}

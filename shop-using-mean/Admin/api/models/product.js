@@ -1,13 +1,28 @@
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
-var schema = new Schema({
-	//category: string,
-	name: {type: String, required: true},
-	price: {type: Number, required: true},
-	image: { type: String },
-	description: {type: String, required: true},
-	status: Boolean,
+const schema = new Schema({
+	/*category: {
+		type: string
+	},*/
+	name: {
+		type: String,
+		required: true
+	},
+	price: {
+		type: Number,
+		required: true
+	},
+	image: {
+		type: String
+	},
+	description: {
+		type: String,
+		required: true
+	},
+	status: {
+		type: Boolean
+	},
 });
 
 module.exports = mongoose.model('Product', schema);

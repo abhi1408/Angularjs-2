@@ -21,7 +21,7 @@
       "styles": [
         "../bower_components/font-awesome/css/font-awesome.min.css",
         "../bower_components/bootstrap/dist/css/bootstrap.min.css",
-        "../bower_components/metisMenu/metisMenu.min.css",
+        "../bower_components/metisMenu/dist/metisMenu.min.css",
         "../bower_components/alertifyjs/dist/css/alertify.css",
         "../node_modules/froala-editor/css/froala_editor.pkgd.min.css",
         "styles.css"
@@ -29,7 +29,7 @@
       "scripts": [
         "../bower_components/jquery/dist/jquery.js",
         "../bower_components/bootstrap/dist/js/bootstrap.min.js",
-        "../bower_components/metisMenu/metisMenu.min.js",
+        "../bower_components/metisMenu/dist/metisMenu.min.js",
         "../bower_components/alertifyjs/dist/js/alertify.js",
         "../node_modules/froala-editor/js/froala_editor.pkgd.min.js",
         "assets/js/custom.js"

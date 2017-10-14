@@ -6,7 +6,7 @@ import { ImageCropperComponent, CropperSettings, Bounds } from 'ng2-img-cropper'
 import { ProductService } from '../../services/product.service';
 import { NotificationUtils } from '../../utils/notification.utils';
 import { ConfigUtils } from '../../utils/config.utils';
-
+import { Product } from '../../models/product';
 
 @Component({
   moduleId: module.id,
@@ -17,16 +17,15 @@ import { ConfigUtils } from '../../utils/config.utils';
 
 export class ProductsAddComponent {
   pageTitle = 'Product';
-
   apiPath: string = '';
+
+  model = new Product('', '', true, '', '');
 
 	name: string;
 	price: number;
 	status: boolean;
   image: string;
   description: string;
-
-  //statusList = [{name: 'Active', value: 1}, {name: 'Inactive', value: 0}];
 
   statusList =[{"name":"Active", "value":true}, {"name":"Inactive", "value":false}];
   
@@ -56,15 +55,14 @@ export class ProductsAddComponent {
   }
 
 	addProduct() {
-		var product = {
-			name: this.name,
-			price: this.price,
-      status: this.status,
+		const newProduct = {
+			name: this.model.name,
+			price: this.model.price,
+      status: this.model.status,
       image: this.image1Data.image,
-			description: this.description,
+			description: this.model.description,
 		}
-    //console.log(this.image1Data.image);
-		this.productService.addProduct(product)
+		this.productService.addProduct(newProduct)
         .subscribe(data => {
           this.notificationUtils.printSuccessMessage('Product added successfully.');
           this.goBack();

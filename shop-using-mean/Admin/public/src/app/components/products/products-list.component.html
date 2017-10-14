@@ -25,21 +25,26 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="odd gradeX" *ngFor="let product of products | paginate: { id: 'product-list', itemsPerPage: 20, currentPage: currentPage }">
-                                <td>{{product._id}}</td>
-                                <td><img src="{{product.image}}" height="50"></td>
-                                <td>{{product.name}}</td>
-                                <td>{{product.price}}</td>
-                                <td>{{product.status}}</td>
-                                <td>
-                                    <a [routerLink]="['/product/edit', product._id]" title="Edit"><i class="fa fa-edit fa-fw"></i></a>
-                                    <a href="javascript:void(0);" title="Remove" (click)="deleteProduct(product._id);"><i class="fa fa-trash-o fa-fw"></i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td align="right" colspan="6">
-                                    <pagination-controls id="product-list" (pageChange)="currentPage = $event" maxSize="9" directionLinks="true" autoHide="true" previousLabel="Previous" nextLabel="Next" screenReaderPaginationLabel="Pagination" screenReaderPageLabel="page" screenReaderCurrentLabel="You're on page"></pagination-controls>
-                                </td>
+                            <ng-container *ngIf="products != ''">
+                                <tr class="odd gradeX" *ngFor="let product of products | paginate: { id: 'product-list', itemsPerPage: 10, currentPage: currentPage }">
+                                    <td>{{product._id}}</td>
+                                    <td><img src="{{product.image}}" height="50"></td>
+                                    <td>{{product.name}}</td>
+                                    <td>{{product.price}}</td>
+                                    <td>{{product.status}}</td>
+                                    <td>
+                                        <a [routerLink]="['/product/edit', product._id]" title="Edit"><i class="fa fa-edit fa-fw"></i></a>
+                                        <a href="javascript:void(0);" title="Remove" (click)="deleteProduct(product._id);"><i class="fa fa-trash-o fa-fw"></i></a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="right" colspan="6" >
+                                        <pagination-controls  id="product-list" (pageChange)="currentPage = $event" maxSize="9" directionLinks="true" autoHide="true" previousLabel="Previous" nextLabel="Next" screenReaderPaginationLabel="Pagination" screenReaderPageLabel="page" screenReaderCurrentLabel="You're on page"></pagination-controls>
+                                    </td>
+                                </tr>
+                            </ng-container>
+                            <tr *ngIf="products == ''">
+                                <td colspan="6">No record found.</td>
                             </tr>
                         </tbody>
                     </table>

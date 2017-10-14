@@ -1,5 +1,5 @@
 var PORT = 8000 || process.env.PORT;
-var DB = "mongodb://localhost/shopping-cart";
+var DB = "mongodb://localhost:27017/shopping-cart";
 
 var express = require('express');
 var bodyParser = require('body-parser');
@@ -9,8 +9,8 @@ var mongoose = require('mongoose');
 var busboy = require('connect-busboy');
 //var session = require('express-session');
 
-var mainRouter = require('./routes/index');
-var apiRouter = require('./routes/api');
+const mainRouter = require('./routes/index');
+const apiRouter = require('./routes/api');
 
 //set environment
 
@@ -33,7 +33,7 @@ app.set('view engine', 'ejs');
 app.engine('html', require('ejs').renderFile);
 
 //set static folder
-app.use(express.static(path.join(__dirname, 'api')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 //body parser middleware
 app.use(bodyParser.json({limit: '50mb'}));
@@ -46,16 +46,20 @@ app.use('/', mainRouter);
 app.use('/api', apiRouter);
 
 
+//Connect to mongodb
+mongoose.connect(DB);
 
-mongoose.connect(DB, function(err){
+mongoose.connection.on('connected', function(){
+	console.log('Connected to mongodb database @ 27017');
+});
+
+mongoose.connection.on('error', function(err){
 	if(err){
-		return err;
+		console.log('Error in mongodb database connection ' + err);
 	}
-	console.log('Successfully connected to ' + DB);
 });
 
 
-
 app.listen(PORT, function(){
-	console.log('listening on port ' + PORT);
+	console.log('Server started at port: ' + PORT);
 });

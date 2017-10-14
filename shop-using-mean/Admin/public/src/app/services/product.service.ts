@@ -26,10 +26,10 @@ export class ProductService {
 					.map(response => response.json());
 	}
 
-	addProduct(product) {
+	addProduct(newProduct) {
 		var headers = new Headers;
 		headers.append('Content-Type', 'application/json');
-		return this.http.post(this.apiPath + 'product', JSON.stringify(product), { headers: headers })
+		return this.http.post(this.apiPath + 'product', JSON.stringify(newProduct), { headers: headers })
 					.map(response => response.json());
 	}
 

@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../../services/product.service';
 import { NotificationUtils } from '../../utils/notification.utils';
 
+
 @Component({
   moduleId: module.id,
   selector: 'app-root',
@@ -12,7 +13,7 @@ import { NotificationUtils } from '../../utils/notification.utils';
 export class ProductsListComponent implements OnInit {
   	pageTitle = 'Product'; 
 
-  	products: Array<any>;
+  	products: any;
 
   	constructor(private productService: ProductService,
       private notificationUtils: NotificationUtils) {};
@@ -21,11 +22,17 @@ export class ProductsListComponent implements OnInit {
       this.getProducts();
     }
 
-    deleteProduct(id){
+    deleteProduct(id: any){
+      var products = this.products;  
       this.productService.deleteProduct(id)
-        .subscribe(response => {
-          this.notificationUtils.printSuccessMessage('Product deleted successfully.');
-          this.getProducts();
+        .subscribe(data => {
+          if(data.n == 1){
+            for(var i = 0; i < products.length; i++){
+              if(products[i]._id == id){
+                products.splice(i, 1);
+              }
+            }
+          }
         });
     }
 
@@ -33,7 +40,7 @@ export class ProductsListComponent implements OnInit {
       this.productService.getProducts()
         .subscribe(response => {
           this.products = response;
-          console.log(this.products);
+          //console.log(this.products);
         });
     }
 
