@@ -17,7 +17,7 @@ export class ProductService {
 	}
 
 	getProducts(){
-		return this.http.get(this.apiPath + 'products')
+		return this.http.get(this.apiPath + 'product')
 					.map(response => response.json());
 	}
 

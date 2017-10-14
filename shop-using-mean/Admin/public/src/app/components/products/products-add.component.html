@@ -38,7 +38,7 @@
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label>Price</label>
-                                    <input name="price" [(ngModel)]="model.price" #price="ngModel" required class="form-control">
+                                    <input name="price" [(ngModel)]="model.price" #price="ngModel" required  class="form-control">
                                     <div *ngIf="price.errors && (price.dirty || price.touched)" class="alert">
                                       <div *ngIf="price.errors.required">Price is required.</div>
                                     </div>
