@@ -6,6 +6,12 @@ const router = express.Router();
 //csrfProtection = csrf();
 
 /*
+* User Routes
+*/
+const categoryRoutes = require('./api/category');
+router.use('/category', categoryRoutes); 
+
+/*
 * Product Routes
 */
 const productRoutes = require('./api/product');

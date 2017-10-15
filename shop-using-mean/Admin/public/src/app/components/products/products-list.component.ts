@@ -30,6 +30,7 @@ export class ProductsListComponent implements OnInit {
             for(var i = 0; i < products.length; i++){
               if(products[i]._id == id){
                 products.splice(i, 1);
+                this.notificationUtils.printSuccessMessage('Product deleted successfully.');
               }
             }
           }

@@ -8,6 +8,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 import { CategoriesListComponent } from './components/categories/categories-list.component';
 import { CategoryAddComponent } from './components/categories/category-add.component';
+import { CategoryEditComponent } from './components/categories/category-edit.component';
 
 import { ProductsListComponent } from './components/products/products-list.component';
 import { ProductsAddComponent } from './components/products/products-add.component';
@@ -39,6 +40,9 @@ const routes: Routes = [
   },{
     path: 'category/add',
     component: CategoryAddComponent
+  },{
+    path: 'category/edit/:id',
+    component: CategoryEditComponent
   }
 ]
 
@@ -61,6 +65,7 @@ export const RoutingComponents = [
   DashboardComponent,
   CategoriesListComponent,
   CategoryAddComponent,
+  CategoryEditComponent,
   ProductEditComponent,
   ProductsListComponent,
   ProductsAddComponent
