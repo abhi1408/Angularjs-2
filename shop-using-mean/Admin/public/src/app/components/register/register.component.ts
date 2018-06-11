@@ -5,12 +5,12 @@ import { AuthService } from '../../services/auth.service';
 import { NotificationUtils } from '../../utils/notification.utils';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './login.component.html',
+  selector: 'app-register',
+  templateUrl: './register.component.html'
 })
-export class LoginComponent implements OnInit{
-	pageTitle = 'Login';
-
+export class RegisterComponent implements OnInit {
+	name: String;
+	email: String;
 	username: String;
 	password: String;
 
@@ -20,41 +20,51 @@ export class LoginComponent implements OnInit{
 		private notificationUtils: NotificationUtils) { }
 
 	ngOnInit() {
-		this.authService.loadToken();
-		if(this.authService.authToken){
-	      this.router.navigate(['/dashboard']);
-	    }
 	}
 
-	
-
-	onLoginSubmit(){
+	onRegisterSubmit(){
 		const user = {
-			username: this.username,
+			name: this.name,
+			email: this.email,
+			username: this.username,			
 			password: this.password
 		}
+
 		//validate name
+		if(!this.validateService.validateEmpty(user.name)){
+			this.notificationUtils.printMessage('error', 'Invalid name.');
+			return false;
+		}
+
+		//validate email
+		if(!this.validateService.validateEmail(user.email)){
+			this.notificationUtils.printMessage('error', 'Invalid email.');
+			return false;
+		}
+		
+		//validate username
 		if(!this.validateService.validateEmpty(user.username)){
 			this.notificationUtils.printMessage('error', 'Invalid username.');
 			return false;
 		}
+
 		//validate password
 		if(!this.validateService.validateEmpty(user.password)){
 			this.notificationUtils.printMessage('error', 'Invalid password.');
 			return false;
 		}
 
-		this.authService.authenticateUser(user).subscribe(data => {
-			if(data.success){
-				this.authService.storeUserData(data.token, data.user);
-
-				this.notificationUtils.printMessage('success', 'Yor are nowlogged in.');
-				this.router.navigate(['/dashboard']);
-			}else{
-				this.notificationUtils.printMessage('error', data.message);
+		//Register User
+		this.authService.registerUser(user).subscribe(data => {
+			if(data._id){
+				this.notificationUtils.printMessage('success', 'Your are now registered and can login.');
 				this.router.navigate(['/login']);
+			}else{
+				this.notificationUtils.printMessage('error', 'Somthing went wrong.');
+				this.router.navigate(['/register']);
 			}
 		});
+
 	}
 
 }

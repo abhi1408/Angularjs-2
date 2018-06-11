@@ -6,4 +6,11 @@ import { Component } from '@angular/core';
 })
 export class DashboardComponent {
   pageTitle = 'Dashboard';
+
+  constructor() { }
+
+  ngOnInit() {
+    
+  }
+
 }

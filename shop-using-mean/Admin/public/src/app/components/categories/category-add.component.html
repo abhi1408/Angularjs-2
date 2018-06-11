@@ -26,7 +26,7 @@
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label>Name</label>
-                                    <input name="name" [(ngModel)]="model.name" #name="ngModel" required minlength="5" maxlength="60" class="form-control">
+                                    <input name="name" [(ngModel)]="model.name" #name="ngModel" required minlength="3" maxlength="60" class="form-control">
                                     <div *ngIf="name.errors && (name.dirty || name.touched)" class="alert">
                                       <div *ngIf="name.errors.required">Name is required.</div>
                                       <div *ngIf="name.errors.minlength">Name must be at least 5 characters long.</div>

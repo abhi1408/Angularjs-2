@@ -82,7 +82,7 @@ export class ProductEditComponent  {
 		}
 		this.productService.updateProduct(this.id, product)
         .subscribe(data => {
-          this.notificationUtils.printSuccessMessage('Product updated successfully.');
+          this.notificationUtils.printMessage('success', 'Product updated successfully.');
           this.goBack();
         });
 	}

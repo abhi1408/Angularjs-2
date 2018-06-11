@@ -39,7 +39,7 @@ export class CategoryAddComponent {
 		}
 		this.categoryService.addCategory(newCategory)
         .subscribe(data => {
-          this.notificationUtils.printSuccessMessage('Category added successfully.');
+          this.notificationUtils.printMessage('success', 'Category added successfully.');
           this.goBack();
         });
 	}

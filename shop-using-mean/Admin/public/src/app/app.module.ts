@@ -14,8 +14,11 @@ import { AppRoutingModle, RoutingComponents } from './app.routing';
 
 import { ConfigUtils } from './utils/config.utils';
 import { NotificationUtils } from './utils/notification.utils';
+import { ValidateService } from './services/validate.service';
+import { AuthService } from './services/auth.service';
 
 import 'jquery';
+
 
 @NgModule({
   declarations: [
@@ -34,7 +37,9 @@ import 'jquery';
   ],
   providers: [
     ConfigUtils,
-    NotificationUtils
+    NotificationUtils,
+    ValidateService,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })

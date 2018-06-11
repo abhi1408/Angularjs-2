@@ -64,7 +64,7 @@ export class ProductsAddComponent {
 		}
 		this.productService.addProduct(newProduct)
         .subscribe(data => {
-          this.notificationUtils.printSuccessMessage('Product added successfully.');
+          this.notificationUtils.printMessage('success', 'Product added successfully.');
           this.goBack();
         });
 	}

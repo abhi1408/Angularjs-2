@@ -37,7 +37,7 @@ export class CategoriesListComponent implements OnInit {
           for(var i = 0; i < categories.length; i++){
             if(categories[i]._id == id){
               categories.splice(i, 1);
-              this.notificationUtils.printSuccessMessage('Category deleted successfully.');
+              this.notificationUtils.printMessage('success', 'Category deleted successfully.');
             }
           }
         }

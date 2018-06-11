@@ -3,6 +3,9 @@ import { Routes, RouterModule } from '@angular/router';
 
 
 import { AppComponent } from './app.component';
+import { HeaderComponent } from './components/header/header.component';
+
+import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 
@@ -16,12 +19,15 @@ import { ProductEditComponent } from './components/products/products-edit.compon
 
 const routes: Routes = [
   {
-    path: 'login',
-    component: LoginComponent
-  },{
     path: '',
     pathMatch: 'full',
     redirectTo: '/dashboard'
+  },{
+    path: 'register',
+    component: RegisterComponent
+  },{
+    path: 'login',
+    component: LoginComponent
   },{
     path: 'dashboard',
     component: DashboardComponent
@@ -61,6 +67,8 @@ export class AppRoutingModle {
 
 export const RoutingComponents = [
   AppComponent,
+  HeaderComponent,
+  RegisterComponent,
   LoginComponent,
   DashboardComponent,
   CategoriesListComponent,

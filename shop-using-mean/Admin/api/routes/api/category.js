@@ -24,6 +24,17 @@ router.get('/:id', function(request, response, next){
 	});
 });
 
+//get category hierarchy
+router.get('/hierarchy', function(request, response, next){
+	/*categoryModel.find({}, function(err, docs){
+		if(err){
+			response.send(err).status(404);
+		}
+		response.send(docs).status(200);
+	});*/
+	response.send("========").status(200);
+});
+
 //add category
 router.post('/', function(request, response, next){
 	let newCategory = new categoryModel({

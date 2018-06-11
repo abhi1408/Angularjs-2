@@ -59,7 +59,7 @@ export class CategoryEditComponent  {
 		}
 		this.categoryService.updateCategory(this.id, category)
         .subscribe(data => {
-          this.notificationUtils.printSuccessMessage('Category updated successfully.');
+          this.notificationUtils.printMessage('success', 'Category updated successfully.');
           this.goBack();
         });
 	}

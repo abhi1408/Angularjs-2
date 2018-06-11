@@ -9,17 +9,20 @@ export class NotificationUtils {
     constructor() {}
 
     /*
-    Prints a success message using the alertify.js lib
+    Prints message using the alertify.js lib
     */
-    printSuccessMessage(message: string) {
-
-        this._notifier.success(message);
-    }
-
-    /*
-    Prints an error message using the alertify.js lib
-    */
-    printErrorMessage(message: string) {
-        this._notifier.error(message);
+    printMessage(messageType: string, message: string) {
+        switch (messageType) {
+            case "success":
+                this._notifier.success(message);
+            break;
+            case "error":
+                this._notifier.error(message);
+            break;
+            
+            default:
+                // code...
+            break;
+        }
     }
 }
