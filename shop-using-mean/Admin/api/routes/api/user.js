@@ -38,34 +38,34 @@ router.post('/authenticate', function(request, response, next){
 					success: false,
 					message: 'User not found'
 				}).status(500);
+		}else{
+			userModel.comparePassword(password, user.password, (err, isMatch) => {
+				if(err)
+					response.send(err).status(500);
+
+				if(isMatch){
+
+					const token = jwt.sign({data: user}, config.secret, { expiresIn: config.tokenExpiresIn });
+					
+					response.json({
+						success: true,
+						token: 'JWT '+token,
+						user: {
+							id: user._id,
+							name: user.name,
+							usernmae: user.username,
+							email: user.email
+						}
+					}).status(200);
+				}else{
+					//response.send('Wrong password').status(500);
+					response.json({
+						success: false,
+						message: 'Wrong password'
+					}).status(500);
+				}
+			});	
 		}
-
-		userModel.comparePassword(password, user.password, (err, isMatch) => {
-			if(err)
-				response.send(err).status(500);
-
-			if(isMatch){
-
-				const token = jwt.sign({data: user}, config.secret, { expiresIn: config.tokenExpiresIn });
-				
-				response.json({
-					success: true,
-					token: 'JWT '+token,
-					user: {
-						id: user._id,
-						name: user.name,
-						usernmae: user.username,
-						email: user.email
-					}
-				}).status(200);
-			}else{
-				//response.send('Wrong password').status(500);
-				response.json({
-					success: false,
-					message: 'Wrong password'
-				}).status(500);
-			}
-		});
 	});
 });
 
